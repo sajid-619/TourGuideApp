@@ -15,10 +15,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RestaurantsActivity" android:label="@string/restaurants"/>
-        <activity android:name=".MuseumsActivity" android:label="@string/museums"/>
-        <activity android:name=".HistoricalSitesActivity" android:label="@string/historical_sites"/>
-        <activity android:name=".HotelsActivity" android:label="@string/hotels"/>
+        <activity
+            android:name=".RestaurantsActivity"
+            android:label="@string/restaurants">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sandertrap.tourguideapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MuseumsActivity"
+            android:label="@string/museums">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sandertrap.tourguideapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HistoricalSitesActivity"
+            android:label="@string/historical_sites">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sandertrap.tourguideapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".HotelsActivity"
+            android:label="@string/hotels">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sandertrap.tourguideapp.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
