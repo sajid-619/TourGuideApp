@@ -1,17 +1,30 @@
 package com.sandertrap.tourguideapp;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class RestaurantsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class RestaurantsFragment extends Fragment {
+
+
+    public RestaurantsFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.location_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.location_list, container, false);
 
         //Create an array of restaurants
         ArrayList<Location> restaurants = new ArrayList<Location>();
@@ -58,10 +71,13 @@ public class RestaurantsActivity extends AppCompatActivity {
                 "http://www.restaurantdegraaf.nl",
                 R.drawable.restaurant_de_graaf));
 
-        LocationAdapter itemsAdapter = new LocationAdapter(this, restaurants);
+        LocationAdapter itemsAdapter = new LocationAdapter(getActivity(), restaurants);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
+
+        return rootView;
     }
+
 }

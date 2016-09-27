@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">直辖市的Enkhuizen</string>
+    <string name="address">地址</string>
+    <string name="historical_sites">历史</string>
+    <string name="hotels">酒店</string>
+    <string name="museums">博物馆</string>
+    <string name="phone_number">电话号码</string>
+    <string name="restaurants">饭馆</string>
+    <string name="website">网站</string>
+    <string name="location">位置</string>
+</resources>

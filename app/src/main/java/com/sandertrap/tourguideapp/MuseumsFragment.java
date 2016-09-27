@@ -1,17 +1,32 @@
 package com.sandertrap.tourguideapp;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MuseumsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MuseumsFragment extends Fragment {
+
+
+    public MuseumsFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.location_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.location_list, container, false);
 
         //Create an array of historical sites
         ArrayList<Location> museums = new ArrayList<>();
@@ -42,10 +57,12 @@ public class MuseumsActivity extends AppCompatActivity {
                 "http://www.almanak.nl/enkhuizer_almanak_museum/",
                 R.drawable.enkhuizer_almanak));
 
-        LocationAdapter itemsAdapter = new LocationAdapter(this, museums);
+        LocationAdapter itemsAdapter = new LocationAdapter(getActivity(), museums);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
+
+        return rootView;
     }
 }

@@ -1,17 +1,32 @@
 package com.sandertrap.tourguideapp;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class HotelsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class HotelsFragment extends Fragment {
+
+
+    public HotelsFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.location_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.location_list, container, false);
 
         //Create an array of historical sites
         ArrayList<Location> hotels = new ArrayList<>();
@@ -58,10 +73,13 @@ public class HotelsActivity extends AppCompatActivity {
                 "http://hetwapenvanenkhuizen.nl",
                 R.drawable.wapen_van_enkhuizen));
 
-        LocationAdapter itemsAdapter = new LocationAdapter(this, hotels);
+        LocationAdapter itemsAdapter = new LocationAdapter(getActivity(), hotels);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
+
+        return rootView;
     }
+
 }
